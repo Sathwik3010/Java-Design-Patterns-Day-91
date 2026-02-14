@@ -1,0 +1,124 @@
+Observer Design Pattern
+=======================
+Observer design pattern is a behavioural design pattern that establishes one-to-many dependency between Objects.
+when the subject(Observable changes) its state.all observers are automatically notified.
+
+ Purpose
+--------
+To maintain synchronization between related objects without tight coupling.
+
+
+Subject does not need to know the Observer's implementation — only their interface.
+ Real-Life Example
+YouTube Channel (Subject) → uploads a new video
+ Subscribers (Observers) → get notification automatically
+
+Command Pattern
+===============
+the command pattern is a behavioural design pattern that converts a request into a standalone Objects contains all the information about action that needs to be performed.
+
+real-world scenario
+--------------------
+television is a device that has receiver of action like 
+
+turnOff();
+turnOn();
+
+remote control does not know the TV works internally. it only knows how to send commands when button are passed.
+
+Flyweight Design Pattern
+========================
+flyweight design patter is a structural design pattern used to reduce memory usage by sharing common(intrinsic) data among multiple Objects.
+
+instead of creatin new Object everytime , Objects share pre-existing data when possible.
+
+there are two types of data :-
+intrensic data(common property)
+extrensic data(distinct property)
+
+Concept Summary
+Data Type
+Meaning
+Example
+Intrinsic State
+Shared (doesn’t change)
+Tree type, color, texture
+Extrinsic State
+Unique per object
+Tree location (x, y)
+
+Example Scenario
+A forest has thousands of trees.
+ Creating thousands of objects with duplicate color, type, texture wastes memory.
+ Instead → Share 1 TreeType (Flyweight) object for all trees of same type.
+Intrinsic Data vs Extrinsic Data
+Feature
+Intrinsic Data
+Extrinsic Data
+Meaning
+Shared internal state
+Unique external state
+Stored in
+Flyweight object
+Client object (not stored inside flyweight)
+Changes?
+ Never changes per object
+✔Changes per object
+Memory
+Saves memory by being shared
+Stored separately to avoid duplication
+
+
+ Easy Example — Tree in Forest (Most common example in books)
+Data Type
+Example
+Why?
+Intrinsic
+Tree Type, Color, Texture
+Same for many trees
+Extrinsic
+Position (x, y)
+Each tree is at different position
+
+ We create only one TreeType object for same kind of tree and share it
+  But every tree has its own location → not shared
+
+ Simple Student Example (Easiest for Viva)
+Let’s take Pen example again:
+Type
+Property
+Description
+Intrinsic
+Color ("Red", "Blue")
+Common property shared by many pens
+Extrinsic
+Student Name
+Unique for each student using the pen
+
+ We share Pen objects based on color
+  Student name changes — but pen stays same
+
+Pen Example Table
+Pen
+Intrinsic State
+Extrinsic State
+Pen Object (Red Color)
+"Red"
+Mallikarjuna writes with red pen
+Same Pen reused
+"Red"
+Arjun writes with red pen
+Blue Pen
+"Blue"
+Mani writes with blue pen
+
+
+ One-Liner Definitions (Exam Point of View)
+Intrinsic State: Shared, constant data stored inside the Flyweight object.
+ Example: Pen color.
+Extrinsic State: Context-specific data passed to the Flyweight when needed.
+ Example: Student name while writing.
+
+ Why separate them?
+Because storing unique data inside every object causes memory waste.
+ Flyweight allows thousands of similar objects to share common data.
